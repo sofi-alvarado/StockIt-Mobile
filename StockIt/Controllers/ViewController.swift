@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtMail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        txtMail.borderStyle = UITextBorderStyle.roundedRect
+        txtPassword.borderStyle = UITextBorderStyle.roundedRect
     }
 
     override func didReceiveMemoryWarning() {

@@ -46,24 +46,16 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIt-3f-0UO" customClass="DesignableView" customModule="StockIt" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoJ-kV-IvP">
-                                                                <rect key="frame" x="0.0" y="-0.5" width="65.5" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="rUB-kY-82t"/>
-                                                                </constraints>
+                                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VtH-X1-rXJ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="YoJ-kV-IvP" secondAttribute="bottom" id="H6Z-aH-21M"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YoJ-kV-IvP" secondAttribute="trailing" id="PmE-V4-iXz"/>
-                                                            <constraint firstItem="YoJ-kV-IvP" firstAttribute="top" secondItem="pIt-3f-0UO" secondAttribute="top" id="dmN-mk-nLK"/>
-                                                            <constraint firstItem="YoJ-kV-IvP" firstAttribute="leading" secondItem="pIt-3f-0UO" secondAttribute="leading" id="s7k-Sb-19w"/>
-                                                            <constraint firstAttribute="bottom" secondItem="YoJ-kV-IvP" secondAttribute="bottom" id="tBk-CI-B0d"/>
-                                                            <constraint firstItem="YoJ-kV-IvP" firstAttribute="top" secondItem="pIt-3f-0UO" secondAttribute="top" id="xXm-P4-42W"/>
+                                                            <constraint firstAttribute="height" constant="50" id="maP-Bu-cus"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -83,22 +75,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANB-yL-OYt" customClass="DesignableView" customModule="StockIt" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="66" width="288" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contrasena" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbi-gb-pN9">
-                                                                <rect key="frame" x="0.0" y="-0.5" width="95.5" height="50"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contrasena" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qg8-sX-J3R">
+                                                                <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tbi-gb-pN9" secondAttribute="trailing" id="6Qw-uE-Myq"/>
-                                                            <constraint firstAttribute="bottom" secondItem="tbi-gb-pN9" secondAttribute="bottom" id="WcM-mg-uYC"/>
-                                                            <constraint firstItem="tbi-gb-pN9" firstAttribute="leading" secondItem="ANB-yL-OYt" secondAttribute="leading" id="dU0-WZ-YqS"/>
-                                                            <constraint firstItem="tbi-gb-pN9" firstAttribute="top" secondItem="ANB-yL-OYt" secondAttribute="top" id="eNo-Ff-Lh8"/>
-                                                            <constraint firstItem="tbi-gb-pN9" firstAttribute="top" secondItem="ANB-yL-OYt" secondAttribute="top" id="hgN-cP-KlI"/>
-                                                            <constraint firstAttribute="bottom" secondItem="tbi-gb-pN9" secondAttribute="bottom" id="w3T-qH-2fc"/>
-                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                                                 <color key="value" red="0.1362937176" green="0.1362937176" blue="0.1362937176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,7 +102,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FM-W4-kCc">
                                                 <rect key="frame" x="16" y="209.5" width="288" height="50"/>
-                                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.40705686807632446" green="0.45914983749389648" blue="0.66325682401657104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1iN-4J-ivC"/>
                                                 </constraints>
@@ -155,7 +139,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGr-Ta-9vU">
                                                         <rect key="frame" x="142" y="0.0" width="62" height="20.5"/>
-                                                        <state key="normal" title="Crea una"/>
+                                                        <state key="normal" title="Crea una">
+                                                            <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -174,9 +160,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="txtMail" destination="VtH-X1-rXJ" id="5DC-wC-mD5"/>
+                        <outlet property="txtPassword" destination="Qg8-sX-J3R" id="onb-yv-6eO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="682.5" y="114.08450704225352"/>
         </scene>
         <!--Home-->
         <scene sceneID="tDw-AE-zP7">
@@ -207,7 +198,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDw-bx-OwE">
                                 <rect key="frame" x="16" y="244" width="288" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Comprar Productos">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -223,7 +214,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Th-2t-pNi">
                                 <rect key="frame" x="16" y="302" width="288" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Ver Compras">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -239,7 +230,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-vi-KPv">
                                 <rect key="frame" x="210" y="33" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cerrar Sesion"/>
+                                <state key="normal" title="Cerrar Sesion">
+                                    <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="iXS-Wn-NtB"/>
                                 </connections>
@@ -275,7 +268,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96n-si-LFH">
                                 <rect key="frame" x="120" y="505" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Volver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -319,7 +312,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ur-Ou-3T9">
                                 <rect key="frame" x="16" y="490" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Comprar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -332,7 +325,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ops-CP-rPK">
                                 <rect key="frame" x="224" y="490" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Volver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -404,6 +397,7 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="L49-tx-ITT">
                                 <rect key="frame" x="61" y="295" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stepper>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Gx-b0-ZGq">
                                 <rect key="frame" x="16" y="59" width="124" height="117"/>
@@ -496,7 +490,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ux-CeK">
                                 <rect key="frame" x="123" y="530" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ir al detalle"/>
+                                <state key="normal" title="Ir al detalle">
+                                    <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Mew-kO-eck" kind="show" id="JgU-wg-sDk"/>
                                 </connections>
@@ -504,12 +500,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nHl-yc-3VY">
                                 <rect key="frame" x="170" y="102" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Agregar imagen"/>
+                                <state key="normal" title="Agregar imagen">
+                                    <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeX-Nz-14B">
                                 <rect key="frame" x="120" y="490" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.081063279114071629" blue="0.14188683755410558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.88778114318847656" green="0.2422117292881012" blue="0.33930349349975586" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -528,10 +526,10 @@
             </objects>
             <point key="canvasLocation" x="2085" y="25.35211267605634"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalle Producto-->
         <scene sceneID="UkX-mA-Ohi">
             <objects>
-                <viewController id="Mew-kO-eck" sceneMemberID="viewController">
+                <viewController id="Mew-kO-eck" customClass="DetalleProducto" customModule="StockIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Rq-xe-Cph">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -683,7 +681,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onz-ef-Nsf">
                                 <rect key="frame" x="121" y="501" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0020097530459999998" green="0.14423110259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Volver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -721,7 +719,7 @@
         <image name="Header" width="1280" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PkL-CS-iWb"/>
-        <segue reference="hWY-Ro-URX"/>
+        <segue reference="xyJ-WX-W8t"/>
+        <segue reference="fCO-Lf-od8"/>
     </inferredMetricsTieBreakers>
 </document>
