@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EDetalleCompraProductos" representedClassName="EDetalleCompraProductos" syncable="YES" codeGenerationType="class">
+        <attribute name="cantidad" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idDetCompraProductos" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idEncCompraProductos" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idProducto" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="porcentajeGanancia" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="precioLote" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="precioUnitario" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="precioVenta" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="eproducto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EProducto" inverseName="ecompraproductos" inverseEntity="EProducto" syncable="YES"/>
     </entity>
     <entity name="EProducto" representedClassName="EProducto" syncable="YES" codeGenerationType="class">
         <attribute name="detalles" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,10 +19,12 @@
         <attribute name="idProducto" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idUsuario" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="img" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="nombreProducto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="precio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="ecompraproductos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EDetalleCompraProductos" inverseName="eproducto" inverseEntity="EDetalleCompraProductos" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EProducto" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="EDetalleCompraProductos" positionX="-54" positionY="63" width="128" height="60"/>
+        <element name="EDetalleCompraProductos" positionX="-54" positionY="63" width="128" height="180"/>
+        <element name="EProducto" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
