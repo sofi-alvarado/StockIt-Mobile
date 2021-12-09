@@ -578,6 +578,10 @@
                         <viewLayoutGuide key="safeArea" id="FjQ-Ln-kRt"/>
                     </view>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="pvCategorias" destination="Wwu-gc-N4I" id="OjA-3C-jIv"/>
+                        <outlet property="pvProveedores" destination="Hnk-4D-reC" id="feY-uJ-gM9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oht-ES-dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
