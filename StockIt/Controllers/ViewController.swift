@@ -50,16 +50,29 @@ class ViewController: UIViewController {
     @IBAction func iniciarSesion(_ sender: UIButton) {
         if txtMail.text != nil && txtPassword.text != nil{
             if txtMail.text != "" && txtPassword.text != ""{
-                var resultado:Int = 0
                 
                 login(email: txtMail.text!, password: txtPassword.text!){
                     (r) in
-                    resultado = r
                     
                     if r > 0 {
                         self.performSegue(withIdentifier: "homeSegue", sender: self)
                     } else {
-                        print("Resultado: \(String(resultado))")
+                        
+                        var message:String = ""
+                        
+                        if r == -1 {
+                            message = "Password incorrecta"
+                        } else if r == -2 {
+                            message = "No existe ningun usuario registrado con ese correo"
+                        } else {
+                            message = "Hubo un error. Intenta mas tarde"
+                        }
+                        
+                        let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        
+                        self.present(alert, animated: true)
+                        
                     }
                 }
             }
