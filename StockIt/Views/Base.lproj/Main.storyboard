@@ -116,7 +116,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aep-yO-0g7"/>
-                                                    <segue destination="HEQ-pD-pcx" kind="show" id="fCO-Lf-od8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -164,6 +163,7 @@
                     <connections>
                         <outlet property="txtMail" destination="VtH-X1-rXJ" id="5DC-wC-mD5"/>
                         <outlet property="txtPassword" destination="Qg8-sX-J3R" id="onb-yv-6eO"/>
+                        <segue destination="HEQ-pD-pcx" kind="show" identifier="homeSegue" id="b05-91-Cun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -763,7 +763,7 @@
         <image name="Header" width="1280" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bna-e9-tI5"/>
-        <segue reference="xsC-hn-wrM"/>
+        <segue reference="xyJ-WX-W8t"/>
+        <segue reference="b05-91-Cun"/>
     </inferredMetricsTieBreakers>
 </document>

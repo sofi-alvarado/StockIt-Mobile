@@ -55,7 +55,12 @@ class ViewController: UIViewController {
                 login(email: txtMail.text!, password: txtPassword.text!){
                     (r) in
                     resultado = r
-                    print("Resultado: \(String(resultado))")
+                    
+                    if r > 0 {
+                        self.performSegue(withIdentifier: "homeSegue", sender: self)
+                    } else {
+                        print("Resultado: \(String(resultado))")
+                    }
                 }
             }
         } else {
@@ -64,8 +69,6 @@ class ViewController: UIViewController {
     }
     
     func login(email:String, password:String, completion:@escaping(_ r:Int) -> ()){
-        
-        var resultado:Int = 0
         
         print("Enviar solicitud")
         

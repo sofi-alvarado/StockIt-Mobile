@@ -25,7 +25,7 @@ class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         let producto: EProducto = loadProductos()[indexPath.row]
-        cell.textLabel?.text = producto.nombreProducto
+        cell.textLabel?.text = "producto.nombreProducto"
         return cell
     }
     
