@@ -115,6 +115,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="iniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aep-yO-0g7"/>
                                                     <segue destination="HEQ-pD-pcx" kind="show" id="fCO-Lf-od8"/>
                                                 </connections>
                                             </button>
