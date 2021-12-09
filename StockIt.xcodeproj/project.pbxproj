@@ -10,6 +10,10 @@
 		33108BE82758846D00902825 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33108BE72758846D00902825 /* HomeController.swift */; };
 		33108BEA2758A26600902825 /* CompraProductosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33108BE92758A26600902825 /* CompraProductosController.swift */; };
 		33BA13A3275D2C25001A30CB /* DetalleProductoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA13A2275D2C25001A30CB /* DetalleProductoController.swift */; };
+		33D7D22C2761F6E500C90664 /* MProveedor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D22B2761F6E500C90664 /* MProveedor.swift */; };
+		33D7D22E2761F7DD00C90664 /* MProducto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D22D2761F7DD00C90664 /* MProducto.swift */; };
+		33D7D2302761F9F900C90664 /* MEncabezadoCompraProductos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D22F2761F9F900C90664 /* MEncabezadoCompraProductos.swift */; };
+		33D7D2322761FB1700C90664 /* MDetalleCompraProductos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7D2312761FB1700C90664 /* MDetalleCompraProductos.swift */; };
 		33EC2112275FF07500D145EC /* VerComprasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EC2111275FF07500D145EC /* VerComprasController.swift */; };
 		33F1875D2758383700368216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1875C2758383700368216 /* AppDelegate.swift */; };
 		33F1875F2758383700368216 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1875E2758383700368216 /* ViewController.swift */; };
@@ -43,6 +47,10 @@
 		33108BE72758846D00902825 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		33108BE92758A26600902825 /* CompraProductosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompraProductosController.swift; sourceTree = "<group>"; };
 		33BA13A2275D2C25001A30CB /* DetalleProductoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleProductoController.swift; sourceTree = "<group>"; };
+		33D7D22B2761F6E500C90664 /* MProveedor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProveedor.swift; sourceTree = "<group>"; };
+		33D7D22D2761F7DD00C90664 /* MProducto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MProducto.swift; sourceTree = "<group>"; };
+		33D7D22F2761F9F900C90664 /* MEncabezadoCompraProductos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEncabezadoCompraProductos.swift; sourceTree = "<group>"; };
+		33D7D2312761FB1700C90664 /* MDetalleCompraProductos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDetalleCompraProductos.swift; sourceTree = "<group>"; };
 		33EC2111275FF07500D145EC /* VerComprasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerComprasController.swift; sourceTree = "<group>"; };
 		33F187592758383700368216 /* StockIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F1875C2758383700368216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,9 +115,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		33BA13A6275D3109001A30CB /* Models */ = {
+		33D7D22A2761F6C900C90664 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				33D7D22B2761F6E500C90664 /* MProveedor.swift */,
+				33D7D22D2761F7DD00C90664 /* MProducto.swift */,
+				33D7D22F2761F9F900C90664 /* MEncabezadoCompraProductos.swift */,
+				33D7D2312761FB1700C90664 /* MDetalleCompraProductos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,7 +149,7 @@
 		33F1875B2758383700368216 /* StockIt */ = {
 			isa = PBXGroup;
 			children = (
-				33BA13A6275D3109001A30CB /* Models */,
+				33D7D22A2761F6C900C90664 /* Models */,
 				33BA13A5275D307C001A30CB /* Controllers */,
 				33BA13A4275D3070001A30CB /* Views */,
 				33F1875C2758383700368216 /* AppDelegate.swift */,
@@ -301,9 +313,13 @@
 				33F1878E2758466000368216 /* DesignableView.swift in Sources */,
 				33BA13A3275D2C25001A30CB /* DetalleProductoController.swift in Sources */,
 				33F1875F2758383700368216 /* ViewController.swift in Sources */,
+				33D7D22E2761F7DD00C90664 /* MProducto.swift in Sources */,
 				33108BE82758846D00902825 /* HomeController.swift in Sources */,
 				33F187652758383700368216 /* StockIt.xcdatamodeld in Sources */,
 				33EC2112275FF07500D145EC /* VerComprasController.swift in Sources */,
+				33D7D22C2761F6E500C90664 /* MProveedor.swift in Sources */,
+				33D7D2302761F9F900C90664 /* MEncabezadoCompraProductos.swift in Sources */,
+				33D7D2322761FB1700C90664 /* MDetalleCompraProductos.swift in Sources */,
 				33F1875D2758383700368216 /* AppDelegate.swift in Sources */,
 				33108BEA2758A26600902825 /* CompraProductosController.swift in Sources */,
 			);
