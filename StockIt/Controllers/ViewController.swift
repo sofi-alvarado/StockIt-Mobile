@@ -55,6 +55,8 @@ class ViewController: UIViewController {
                     (r) in
                     
                     if r > 0 {
+                        self.txtMail.text = ""
+                        self.txtPassword.text = ""
                         self.performSegue(withIdentifier: "homeSegue", sender: self)
                     } else {
                         

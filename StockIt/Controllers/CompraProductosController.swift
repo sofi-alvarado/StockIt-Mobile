@@ -7,13 +7,37 @@ class CompraProductos: UIViewController {
     
     //Variables
     var idProductoParametro:Int = 0//Variable a pasar desde pantalla Productos
+    var nomProveedor:String = ""
+    var nomCategoria:String = ""
+    var nomProducto:String = ""
+    var cantidad:Int = 0
+    var precioLote:Double = 0.0
+    var precioUnitario:Double = 0.0
+    var porcentajeGanancia:Double = 0.0
+    var ganancia:Double = 0.0
+    var precioVenta:Double = 0.0
+    var detalles:String = ""
     
     //Controladores de Vistas
+    @IBOutlet weak var lblNomProveedor: UILabel!
+    @IBOutlet weak var lblNomCategoria: UILabel!
+    @IBOutlet weak var lblNomProducto: UILabel!
+    @IBOutlet weak var lblCantidad: UILabel!
+    @IBOutlet weak var txtPrecioLote: UITextField!
+    @IBOutlet weak var txtPrecioUnitario: UITextField!
+    @IBOutlet weak var txtPorcentajeGanancia: UITextField!
+    @IBOutlet weak var txtGanancia: UITextField!
+    @IBOutlet weak var txtPrecioVenta: UITextField!
+    @IBOutlet weak var lblDetalles: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        lblNomProveedor.text = nomProveedor
+        lblNomCategoria.text = nomCategoria
+        lblNomProducto.text = nomProducto
+        lblDetalles.text = detalles
         
     }
 

@@ -13,6 +13,10 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
     //Variables
     var listaProductos = Array<MCardProducto>()
     var idProducto:Int = 0
+    var nomProveedor:String = ""
+    var nomCategoria:String = ""
+    var nomProducto:String = ""
+    var detalles:String = ""
     
     //Outlets
     @IBOutlet weak var tvProductos: UITableView!
@@ -57,11 +61,29 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print(listaProductos[indexPath.row].idProducto)
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        print("ID Producto VC1:", listaProductos[indexPath.row].idProducto)
         idProducto = listaProductos[indexPath.row].idProducto
+        nomProveedor = listaProductos[indexPath.row].nombreProveedor
+        nomCategoria = listaProductos[indexPath.row].categoria
+        nomProducto = listaProductos[indexPath.row].nombreProducto
+        
         //Llamar el otro metodo
         self.performSegue(withIdentifier: "productosSegue", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewControllerCompraProductos = segue.destination as! CompraProductos
+        viewControllerCompraProductos.idProductoParametro = idProducto
+        viewControllerCompraProductos.nomProveedor = nomProveedor
+        viewControllerCompraProductos.nomCategoria = nomCategoria
+        viewControllerCompraProductos.nomProducto = nomProducto
+        viewControllerCompraProductos.detalles = detalles
+        
     }
     
     //MARK - Metodo para consultar los productos activos

@@ -21,7 +21,17 @@ class Home: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    @IBAction func cerrarSesion(_ sender: UIButton) {
+        
+        //Quitar NavigationController para el Login
+        var navController = self.navigationController
+        
+        navController?.dismiss(animated: true){
+            navController = nil
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
