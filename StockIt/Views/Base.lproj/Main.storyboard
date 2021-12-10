@@ -395,6 +395,9 @@
                                                 <state key="normal" title="Agregar imagen">
                                                     <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnSeleccionarImagen:" destination="6Rj-DQ-xe6" eventType="touchUpInside" id="y37-TG-gPd"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Proveedor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFu-AJ-G2A">
                                                 <rect key="frame" x="16" y="187" width="75" height="18"/>
@@ -579,6 +582,7 @@
                     </view>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="ivProducto" destination="0Gx-b0-ZGq" id="ffv-Gx-0vC"/>
                         <outlet property="pvCategorias" destination="Wwu-gc-N4I" id="OjA-3C-jIv"/>
                         <outlet property="pvProveedores" destination="Hnk-4D-reC" id="feY-uJ-gM9"/>
                     </connections>

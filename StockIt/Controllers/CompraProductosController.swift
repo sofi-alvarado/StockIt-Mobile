@@ -3,17 +3,20 @@ import UIKit
 
 
 
-class CompraProductos: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CompraProductos: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     //Variables
     var proveedores = Array<MProveedor>()
     var idProveedor:Int = 0
     var categorias = Array<MCategoria>()
     var idCategoria:Int = 0
+    var imagePickerController = UIImagePickerController()
+    var img:NSMutableArray = NSMutableArray()
     
     //Controladores
     @IBOutlet weak var pvProveedores: UIPickerView!
     @IBOutlet weak var pvCategorias: UIPickerView!
+    @IBOutlet weak var ivProducto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +72,63 @@ class CompraProductos: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         }
         
     }
+    
+    //MARK: Seleccion de imagen - Inicio
+    @IBAction func btnSeleccionarImagen(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .savedPhotosAlbum
+            imagePickerController.allowsEditing = false
+            
+            present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let choosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        ivProducto.contentMode = .scaleAspectFill
+        ivProducto.image = choosenImage
+        if let imageSelected = ivProducto.image{
+            let data = UIImageJPEGRepresentation(imageSelected, 1.0)! as NSData
+            getArrayOfBytesFromImage(imageData: data)
+        }
+        else { return }
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    //Convertir imagen a Array
+    func getArrayOfBytesFromImage(imageData:NSData) {
+        //Numero de elementos
+        let count = imageData.length / MemoryLayout<UInt8>.size
+        
+        //Creamos un arreglo con el tamanho correcto
+        var bytes = [UInt8](repeating: 0, count: count)
+        
+        //Copiar bytes en array
+        imageData.getBytes(&bytes, length: count * MemoryLayout.size(ofValue: UInt8.self))
+        
+        let byteArray:NSMutableArray = NSMutableArray()
+        
+        for i in 0..<count {
+            byteArray.add(bytes[i])
+        }
+        
+        img = byteArray
+        
+        if let stringByteArray = String(bytes: bytes, encoding: .utf8){
+            print("Byte Array Img: \(bytes)")
+        } else {
+            print("No es un byteArray valido")
+        }
+    }
+    
+    //MARK: Seleccion de imagen - Fin
+    
+    
     
     //Metodo para llenar proveedores
     func obtenerProveedores(){
