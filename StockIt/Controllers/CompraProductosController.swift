@@ -65,16 +65,35 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        if textField == txtPorcentajeGanancia {
+            let porcentajeGananciaS = txtPorcentajeGanancia.text != nil ? txtPorcentajeGanancia.text : "0"
+            porcentajeGanancia = (porcentajeGananciaS! as NSString).doubleValue / 100
+        }
+    }
     //MARK: Control de TextField onChange - Fin
+    
+    //MARK: Agregar/Disminuir cantidad - Inicio
+    
+    @IBAction func stepperCantidad(_ sender: UIStepper) {
+        cantidad = Int(sender.value)
+        lblCantidad.text = String(cantidad)
+    }
+    
+    //MARK: Agregar/Disminuir cantidad - Fin
+    
+    //MARK: Metodos de calculos - Inicio
+    func calcGananciaYPrecioVenta(){
+        
+    }
+    //MARK: Metodos de calculos - Fin
     
     //MARK: Insertar Compra - Inicio
     
     @IBAction func btnFinalizarCompra(_ sender: UIButton) {
         
         var message:String = ""//Variable para mostrar alert
-        
-        var porcentajeGananciaS = txtPorcentajeGanancia.text != nil ? txtPorcentajeGanancia.text : "0"
-        porcentajeGanancia = (porcentajeGananciaS! as NSString).doubleValue
         
         if idProductoParametro <= 0 || cantidad <= 0 || precioLote <= 0.0 || precioUnitario <= 0.0 || porcentajeGanancia <= 0.0 || porcentajeGanancia > 100 || ganancia <= 0.0 || precioVenta <= 0.0{
             
