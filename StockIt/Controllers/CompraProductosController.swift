@@ -76,14 +76,20 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         var porcentajeGananciaS = txtPorcentajeGanancia.text != nil ? txtPorcentajeGanancia.text : "0"
         porcentajeGanancia = (porcentajeGananciaS! as NSString).doubleValue
         
-        if idProductoParametro <= 0 && cantidad <= 0 && precioLote <= 0.0 && precioUnitario <= 0.0 && porcentajeGanancia <= 0.0 && ganancia <= 0.0 && precioVenta <= 0.0{
-            
-            print("Entro al if de validaciones")
+        if idProductoParametro <= 0 || cantidad <= 0 || precioLote <= 0.0 || precioUnitario <= 0.0 || porcentajeGanancia <= 0.0 || porcentajeGanancia > 100 || ganancia <= 0.0 || precioVenta <= 0.0{
             
             if idProductoParametro <= 0 {
+                
                 message = "No has seleccionado un producto"
+                
+            } else if porcentajeGanancia > 100 {
+                
+                message = "El porcentaje de ganancia no puede ser superior al 100%"
+                
             } else {
+                
                 message = "Debes completar todos los campos"
+                
             }
             
             let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
@@ -93,14 +99,7 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
             
         } else {
             print("Paso las validaciones")
-            if porcentajeGanancia > 100 {
-                message = "El porcentaje de ganancia no puede ser superior al 100%"
-                
-                let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
-            }
+            
             
             /*insertarProductos(idCategoria: 0, idUsuario: 1, nombreProducto: "Producto", precio: 5.0, existencia: 5, detalles: "Detalles"){
                 (r) in
