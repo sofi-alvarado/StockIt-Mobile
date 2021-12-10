@@ -12,6 +12,7 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
     
     //Variables
     var listaProductos = Array<MCardProducto>()
+    var idProducto:Int = 0
     
     //Outlets
     @IBOutlet weak var tvProductos: UITableView!
@@ -54,6 +55,13 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print(listaProductos[indexPath.row].idProducto)
+        idProducto = listaProductos[indexPath.row].idProducto
+        //Llamar el otro metodo
+        self.performSegue(withIdentifier: "productosSegue", sender: self)
     }
     
     //MARK - Metodo para consultar los productos activos

@@ -23,7 +23,7 @@
                         </userGuides>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-v5-r6n">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Header" translatesAutoresizingMaskIntoConstraints="NO" id="rxC-3Q-iki">
                                         <rect key="frame" x="0.0" y="8" width="320" height="128"/>
@@ -122,23 +122,23 @@
                                         <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="hIB-JP-99d">
-                                        <rect key="frame" x="0.0" y="419.5" width="320" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="419.5" width="320" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xG4-Nk-FeX">
-                                        <rect key="frame" x="0.0" y="510" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="475.5" width="320" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9LP-4G-Q8d">
-                                                <rect key="frame" x="58" y="0.0" width="204" height="30"/>
+                                                <rect key="frame" x="58" y="0.0" width="204" height="20.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tienes cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-8s-OfF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGr-Ta-9vU">
-                                                        <rect key="frame" x="142" y="0.0" width="62" height="30"/>
+                                                        <rect key="frame" x="142" y="0.0" width="62" height="20.5"/>
                                                         <state key="normal" title="Crea una">
                                                             <color key="titleColor" red="0.40705686810000002" green="0.45914983749999999" blue="0.66325682399999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -163,7 +163,7 @@
                     <connections>
                         <outlet property="txtMail" destination="VtH-X1-rXJ" id="5DC-wC-mD5"/>
                         <outlet property="txtPassword" destination="Qg8-sX-J3R" id="onb-yv-6eO"/>
-                        <segue destination="HEQ-pD-pcx" kind="show" identifier="homeSegue" id="b05-91-Cun"/>
+                        <segue destination="GAt-XS-5vf" kind="show" identifier="homeSegue" id="b05-91-Cun"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -209,7 +209,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="1hk-2n-C6e" kind="show" id="d8z-A2-ZBB"/>
+                                    <segue destination="w87-TN-Ods" kind="show" identifier="productosSegue" id="fzH-OR-q6o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Th-2t-pNi">
@@ -242,10 +242,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Me0-vt-uYa"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6Lt-8O-iTN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4f-Mm-vUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="39"/>
+            <point key="canvasLocation" x="2551.875" y="12.67605633802817"/>
         </scene>
         <!--View Controller Productos-->
         <scene sceneID="gnE-1o-aEf">
@@ -290,11 +291,12 @@
                     <navigationItem key="navigationItem" id="93n-mv-BGv"/>
                     <connections>
                         <outlet property="tvProductos" destination="GQL-HG-Mj4" id="HN4-SX-on9"/>
+                        <segue destination="6Rj-DQ-xe6" kind="show" identifier="productosSegue" id="NUa-a2-RKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gec-Vb-1zT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872.5" y="-440.49295774647885"/>
+            <point key="canvasLocation" x="3870" y="-440.49295774647885"/>
         </scene>
         <!--Ver Compras-->
         <scene sceneID="2CQ-lO-3Dq">
@@ -572,9 +574,6 @@
                                                         <integer key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="HEQ-pD-pcx" kind="show" id="xsC-hn-wrM"/>
-                                                </connections>
                                             </button>
                                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hnk-4D-reC">
                                                 <rect key="frame" x="0.0" y="213" width="320" height="100"/>
@@ -622,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oht-ES-dhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4080" y="25.35211267605634"/>
+            <point key="canvasLocation" x="5077.5" y="25.35211267605634"/>
         </scene>
         <!--Detalle Producto-->
         <scene sceneID="UkX-mA-Ohi">
@@ -810,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5t-Xv-0wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3819.375" y="24.295774647887324"/>
+            <point key="canvasLocation" x="3913.125" y="306.33802816901408"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CfK-QR-niu">
@@ -831,29 +830,28 @@
             <point key="canvasLocation" x="1395" y="870.42253521126759"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="XDE-oh-yHY">
+        <scene sceneID="Ndy-Z8-qp8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1hk-2n-C6e" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GAt-XS-5vf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uEN-cS-vRy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BVb-Fc-4bG">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="w87-TN-Ods" kind="relationship" relationship="rootViewController" id="xqh-d7-E4n"/>
+                        <segue destination="HEQ-pD-pcx" kind="relationship" relationship="rootViewController" id="6ZW-nS-EaS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qwk-7x-nXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pfx-ny-7Sm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875" y="-440.49295774647885"/>
+            <point key="canvasLocation" x="1554.375" y="12.67605633802817"/>
         </scene>
     </scenes>
     <resources>
         <image name="Header" width="1280" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bna-e9-tI5"/>
-        <segue reference="xsC-hn-wrM"/>
+        <segue reference="NUa-a2-RKb"/>
     </inferredMetricsTieBreakers>
 </document>
