@@ -68,8 +68,18 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         nomCategoria = listaProductos[indexPath.row].categoria
         nomProducto = listaProductos[indexPath.row].nombreProducto
         
-        //Llamar el otro metodo
-        self.performSegue(withIdentifier: "productosSegue", sender: self)
+        //Navegar a pantalla de Compra
+        
+        if listaProductos[indexPath.row].unidadesNuevas > 0 {
+            
+            let alert = UIAlertController(title: "Alerta", message: "Este producto aun cuenta con unidades nuevas.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            
+        } else {
+            self.performSegue(withIdentifier: "productosSegue", sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

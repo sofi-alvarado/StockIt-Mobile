@@ -30,7 +30,7 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
     
     //Variables
     var idProductoParametro:Int = 0//Variable a pasar desde pantalla Productos
-    var idProveedorParametro:Int = 0//Variable a pasar desde pantalla Productos
+    var idProveedor:Int = 0
     var nomProveedor:String = ""
     var nomCategoria:String = ""
     var nomProducto:String = ""
@@ -56,8 +56,12 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        //Obtenemos el IdProveedor
+        seleccionarProductoByID(idProducto: idProductoParametro)
+        
         lblNomProveedor.text = nomProveedor
         lblNomCategoria.text = nomCategoria
         lblNomProducto.text = nomProducto
@@ -151,13 +155,17 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         
         var message:String = ""//Variable para mostrar alert
         
-        if idProductoParametro <= 0 || cantidad <= 0 || precioLote <= 0.0 || precioUnitario <= 0.0 || porcentajeGanancia <= 0.0 || porcentajeGanancia > 100 || ganancia <= 0.0 || precioVenta <= 0.0{
+        if idProductoParametro <= 0 || idProveedor <= 0 || cantidad <= 0 || precioLote <= 0.0 || precioUnitario <= 0.0 || porcentajeGanancia <= 0.0 || porcentajeGanancia > 100 || ganancia <= 0.0 || precioVenta <= 0.0{
             
             if idProductoParametro <= 0 {
                 
                 message = "No has seleccionado un producto"
                 
-            } else if porcentajeGanancia > 100 {
+            } else if idProveedor <= 0 {
+                
+                message = "Este producto no tiene proveedor asignado"
+                
+            }else if porcentajeGanancia > 100 {
                 
                 message = "El porcentaje de ganancia no puede ser superior al 100%"
                 
@@ -174,9 +182,7 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
             
         } else {
             
-            var message:String = ""//Variable para mostrar alert
-            
-            insertarEncabezadoCompra(idProveedor: idProveedorParametro, monto: precioLote){
+            insertarEncabezadoCompra(idProveedor: idProveedor, monto: precioLote){
                 (r) in
                 
                 if r > 0 {
@@ -184,28 +190,88 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
                     self.insertarDetalleCompraPoductos(idEncabezado: r, idProducto: self.idProductoParametro, cantidad: self.cantidad, precioLote: self.precioLote, precioUnitario: self.precioUnitario, precioUnitarioReal: self.precioVenta, porcentajeGanancia: self.porcentajeGanancia){
                         (r) in
                         
-                        print("Resultado compra: \(String(r))")
+                        if r > 0 {
+                            
+                            print("La compra del lote se agrego satisfactoriamente.")
+                            
+                        } else if r == -1 {
+                            
+                            print("No se pudo agregar el nuevo lote. Intenta mas tarde")
+                            
+                        } else {
+                            
+                            print("Hubo un error. Intente mas tarde.")
+                            
+                        }
                     }
                     
                 } else if r == -1 {
                     
-                    message = "No puedes agregar un nuevo lote, hay uno en existencia."
+                    print("No se pudo agregar el nuevo lote. Intenta mas tarde")
+                    
                     
                 } else {
                     
-                    message = "Hubo un error. Intente mas tarde."
+                    print("Hubo un error. Intente mas tarde.")
                     
                 }
-                
-                let alert = UIAlertController(title: "Alerta", message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
             }
             
             //Insertar compra
         }
         
+    }
+    
+    //Metodo para obtener el IdProveedor
+    func seleccionarProductoByID(idProducto:Int){
+        
+        //192.168.1.8
+        let url=URL(string: "http://192.168.1.8/WebService/WebServiceSI.asmx/seleccionarProductoByIdJSON")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        let parameters: [String: Any] = [
+            "idProducto": idProducto
+            ]
+        
+        request.httpBody = parameters.percentEncoded()
+        let task = URLSession.shared.dataTask(with: request) {data, response, error in
+            guard let data = data else { //si existe un error se termina la funcion
+                print("solicitud fallida \(String(describing: error))") //manejamos el error
+                
+                return
+            }
+            
+            do { //creamos nuestro objeto json
+                
+                print("recibimos repuesta")
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
+                {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.idProveedor = json[0]["ID_PROVEEDOR"] as! Int
+                        
+                        return
+                    }
+                } else {
+                    return
+                }
+            }catch let parseError {//manejamos el error
+                
+                print("Error al parsear: \(parseError)")
+                
+                let responseString = String(data: data, encoding: .utf8)
+                
+                print("respuesta: \(responseString!)")
+                
+                return
+            }
+        }
+        
+        task.resume()
     }
     
     //Metodo para insertar encabezado compra
@@ -240,13 +306,26 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
                     
                     DispatchQueue.main.async {
                         
-                        print("Datos completos: \(json)")
-                        
                         let encabezadoCompra:MEncabezadoCompraProductos = MEncabezadoCompraProductos()
                         
                         for encabezadoCompraJSON in json{
                             
                             encabezadoCompra.idEncCompraProductos = encabezadoCompraJSON["ID_ENC_COMPRA_PRODUCTOS"] as! Int
+                            
+                        }
+                        
+                        let alert = UIAlertController(title: "Alerta", message: "message", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        
+                        if encabezadoCompra.idEncCompraProductos == -1 {
+                            
+                            alert.message = "No se pudo agregar el nuevo lote. Intenta mas tarde"
+                            self.present(alert, animated: true)
+                            
+                        } else if encabezadoCompra.idEncCompraProductos == -2 {
+                            
+                            alert.message = "Hubo un error. Intente mas tarde."
+                            self.present(alert, animated: true)
                             
                         }
                         
@@ -279,7 +358,7 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         print("Enviar solicitud")
         
         //192.168.1.8
-        let url=URL(string: "http://192.168.1.8/WebService/WebServiceSI.asmx/insertarProductosJSON")!
+        let url=URL(string: "http://192.168.1.8/WebService/WebServiceSI.asmx/insertarDetalleCompraJSON")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -305,20 +384,41 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
             
             do { //creamos nuestro objeto json
                 
-                print("recibimos repuesta")
-                
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
                 {
                     
                     DispatchQueue.main.async {
                         
-                        print("Datos completos: \(json)")
+                        let detalleCompra:MDetalleCompraProductos = MDetalleCompraProductos()
                         
-                        let idUsuario:Int = json[0]["ID_PRODUCTO"] as! Int
+                        for detalleCompraJSON in json{
+                            
+                            detalleCompra.idDetCompraProductos = detalleCompraJSON["ID_DET_COMPRA_PRODUCTOS"] as! Int
+                            
+                        }
                         
-                        print("Datos: \(json[0]["ID_PRODUCTO"] ?? "null")")
+                        let alert = UIAlertController(title: "Alerta", message: "message", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                         
-                        completion(idUsuario)
+                        if detalleCompra.idDetCompraProductos > 0 {
+                            
+                            alert.title = "Operacion Exitosa"
+                            alert.message = "Nuevo lote agregado satisfactoriamente"
+                            self.present(alert, animated: true)
+                            
+                        } else if detalleCompra.idDetCompraProductos == -1 {
+                            
+                            alert.message = "No se pudo agregar el nuevo lote. Intenta mas tarde"
+                            self.present(alert, animated: true)
+                            
+                        } else if detalleCompra.idDetCompraProductos == -2 {
+                            
+                            alert.message = "Hubo un error. Intente mas tarde."
+                            self.present(alert, animated: true)
+                            
+                        }
+                        
+                        completion(detalleCompra.idDetCompraProductos)
                         return
                     }
                 } else {
