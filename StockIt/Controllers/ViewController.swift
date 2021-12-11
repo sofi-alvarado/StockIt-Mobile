@@ -32,6 +32,8 @@ extension CharacterSet {
 }
 
 class ViewController: UIViewController {
+    
+    var idUsuarioParametro:Int = 0
 
     @IBOutlet weak var txtMail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -45,6 +47,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let viewControllerHome = navigationController.topViewController as! Home
+        viewControllerHome.idUsuarioParametro = idUsuarioParametro
+        
     }
 
     @IBAction func iniciarSesion(_ sender: UIButton) {
@@ -85,8 +94,6 @@ class ViewController: UIViewController {
     
     func login(email:String, password:String, completion:@escaping(_ r:Int) -> ()){
         
-        print("Enviar solicitud")
-        
         //192.168.1.8
         let url=URL(string: "http://192.168.1.8/WebService/WebServiceSI.asmx/loginJSON")!
         var request = URLRequest(url: url)
@@ -109,8 +116,6 @@ class ViewController: UIViewController {
             
             do { //creamos nuestro objeto json
                 
-                print("recibimos repuesta")
-                
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
                 {
                     
@@ -118,7 +123,7 @@ class ViewController: UIViewController {
                         
                         let idUsuario:Int = json[0]["ID_USUARIO"] as! Int
                         
-                        print("Datos: \(json[0]["ID_USUARIO"] ?? "null")")
+                        self.idUsuarioParametro = idUsuario
                         
                         completion(idUsuario)
                         return

@@ -12,6 +12,7 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
     
     //Variables
     var listaProductos = Array<MCardProducto>()
+    var idUsuarioParametro:Int = 0
     var idProducto:Int = 0
     var nomProveedor:String = ""
     var nomCategoria:String = ""
@@ -41,8 +42,7 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         
         //listaProductos.removeAll()
-        
-        seleccionarProductosActivos(idUsuario: 1)
+        seleccionarProductosActivos(idUsuario: idUsuarioParametro)
     }
     
     // MARK: - Delegate & DataSource for TableView

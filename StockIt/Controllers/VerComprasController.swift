@@ -11,6 +11,8 @@ import CoreData
 
 class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var idUsuarioParametro:Int = 0
+    
     var managedObjectContext: NSManagedObjectContext!
 
     

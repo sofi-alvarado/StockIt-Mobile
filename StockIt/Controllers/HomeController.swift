@@ -9,6 +9,8 @@
 import UIKit
 
 class Home: UIViewController {
+    
+    var idUsuarioParametro:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,18 @@ class Home: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "productosSegue" {
+            let viewControllerProductos = segue.destination as! ViewControllerProductos
+            viewControllerProductos.idUsuarioParametro = idUsuarioParametro
+        } else if segue.identifier == "comprasSegue" {
+            let viewControllerCompras = segue.destination as! VerCompras
+            viewControllerCompras.idUsuarioParametro = idUsuarioParametro
+        }
+        
     }
     
     

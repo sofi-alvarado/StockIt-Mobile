@@ -52,7 +52,9 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPorcentajeGanancia: UITextField!
     @IBOutlet weak var txtGanancia: UITextField!
     @IBOutlet weak var txtPrecioVenta: UITextField!
-    @IBOutlet weak var lblDetalles: UILabel!
+    @IBOutlet weak var stpCantidad: UIStepper!
+    @IBOutlet weak var btnComprar: UIButton!
+    @IBOutlet weak var btnCancelar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +67,6 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         lblNomProveedor.text = nomProveedor
         lblNomCategoria.text = nomCategoria
         lblNomProducto.text = nomProducto
-        lblDetalles.text = detalles
         
         //Asignamos delegates
         txtPrecioLote.delegate = self
@@ -148,6 +149,28 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
         
     }
     //MARK: Metodos de calculos - Fin
+    
+    
+    @IBAction func btnCancelarCompra(_ sender: UIButton) {
+        stpCantidad.value = 0.0
+        lblCantidad.text = "0"
+        cantidad = 0
+        
+        precioLote = 0.0
+        txtPrecioLote.text = ""
+        
+        precioUnitario = 0.0
+        txtPrecioUnitario.text = ""
+        
+        porcentajeGanancia = 0.0
+        txtPorcentajeGanancia.text = ""
+        
+        ganancia = 0.0
+        txtGanancia.text = ""
+        
+        precioVenta = 0.0
+        txtPrecioVenta.text = ""
+    }
     
     //MARK: Insertar Compra - Inicio
     
@@ -405,6 +428,11 @@ class CompraProductos: UIViewController, UITextFieldDelegate {
                             alert.title = "Operacion Exitosa"
                             alert.message = "Nuevo lote agregado satisfactoriamente"
                             self.present(alert, animated: true)
+                            
+                            self.txtPrecioLote.isEnabled = false
+                            self.txtPorcentajeGanancia.isEnabled = false
+                            self.btnComprar.isEnabled = false
+                            self.btnCancelar.isEnabled = false
                             
                         } else if detalleCompra.idDetCompraProductos == -1 {
                             
