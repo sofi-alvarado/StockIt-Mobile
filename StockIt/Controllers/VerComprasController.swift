@@ -25,11 +25,7 @@ class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        //tvProductos.delegate = self
-        //tvProductos.dataSource = self
         
-        //Cargamos los productos
-        //seleccionarProductosActivos(idUsuario: 1)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,7 +57,8 @@ class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let fechaIngresoDate = compra.fechaIngreso.prefix(10)
             
-            cell.textLabel?.text = "$\(String(format: "%.2f", compra.monto))  - \(fechaIngresoDate)"
+            cell.textLabel?.text = compra.nombreProveedor
+            cell.detailTextLabel?.text = "$\(String(format: "%.2f", compra.monto))  - \(fechaIngresoDate)"
             
         } else {
             cell.textLabel?.text = "$\(String(format: "%.2f", compra.monto)) (Sin fecha)"
@@ -77,8 +74,8 @@ class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
         fechaIngreso = listaCompras[indexPath.row].fechaIngreso
         monto = listaCompras[indexPath.row].monto
         
-        //Navegar a pantalla de Compra
-        //self.performSegue(withIdentifier: "detalleCompraSegue", sender: self)
+        //Navegar a pantalla de Detalle Compra
+        self.performSegue(withIdentifier: "detalleSegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -90,12 +87,15 @@ class VerCompras: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let viewControllerProductos = segue.destination as! ViewControllerProductos
             viewControllerProductos.idUsuarioParametro = idUsuarioParametro
         } else if segue.identifier == "detalleSegue" {
-            let viewControllerCompras = segue.destination as! VerCompras
-            viewControllerCompras.idUsuarioParametro = idUsuarioParametro
+            let viewControllerComprasDetalle = segue.destination as! DetalleCompra
+            viewControllerComprasDetalle.idEncCompraProductoParametro = idEncCompraProductos
+            viewControllerComprasDetalle.nomProveedor = nomProveedor
+            viewControllerComprasDetalle.fecha = fechaIngreso
+            viewControllerComprasDetalle.monto = monto
         }
     }
     
-    //MARK - Metodo para consultar los productos activos
+    //MARK - Metodo para consultar compras
     func seleccionarCompras(idUsuario:Int){
         
         print("Enviar Solicitud Productos Activos")

@@ -13,6 +13,8 @@ class MDetalleCompraProductos{
     var idDetCompraProductos:Int = 0
     var idEncCompraProductos:Int = 0
     var idProducto:Int = 0
+    var nombreProducto:String = ""
+    var categoria:String = ""
     var cantidad:Int = 0
     var precioLote:Double = 0.0
     var precioUnitario:Double = 0.0

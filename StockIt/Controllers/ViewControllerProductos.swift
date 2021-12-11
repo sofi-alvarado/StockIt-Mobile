@@ -60,7 +60,8 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         
         if producto.nombreProveedor != nil {
             
-            cell.textLabel?.text = producto.nombreProducto + " - \(producto.nombreProveedor)"
+            cell.textLabel?.text = producto.nombreProducto
+            cell.detailTextLabel?.text = producto.nombreProveedor
             
         } else {
             cell.textLabel?.text = producto.nombreProducto + " (Sin proveedor)"
