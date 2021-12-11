@@ -21,7 +21,6 @@
 		33F1875D2758383700368216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1875C2758383700368216 /* AppDelegate.swift */; };
 		33F1875F2758383700368216 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F1875E2758383700368216 /* ViewController.swift */; };
 		33F187622758383700368216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F187602758383700368216 /* Main.storyboard */; };
-		33F187652758383700368216 /* StockIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33F187632758383700368216 /* StockIt.xcdatamodeld */; };
 		33F187672758384000368216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33F187662758384000368216 /* Assets.xcassets */; };
 		33F1876A2758384000368216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F187682758384000368216 /* LaunchScreen.storyboard */; };
 		33F187752758384100368216 /* StockItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F187742758384100368216 /* StockItTests.swift */; };
@@ -62,7 +61,6 @@
 		33F1875C2758383700368216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F1875E2758383700368216 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		33F187612758383700368216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		33F187642758383700368216 /* StockIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockIt.xcdatamodel; sourceTree = "<group>"; };
 		33F187662758384000368216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33F187692758384000368216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33F1876B2758384100368216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				33F1875C2758383700368216 /* AppDelegate.swift */,
 				33F187662758384000368216 /* Assets.xcassets */,
 				33F1876B2758384100368216 /* Info.plist */,
-				33F187632758383700368216 /* StockIt.xcdatamodeld */,
 				33F1878D2758466000368216 /* DesignableView.swift */,
 			);
 			path = StockIt;
@@ -324,7 +321,6 @@
 				33F1875F2758383700368216 /* ViewController.swift in Sources */,
 				33D7D22E2761F7DD00C90664 /* MProducto.swift in Sources */,
 				33108BE82758846D00902825 /* HomeController.swift in Sources */,
-				33F187652758383700368216 /* StockIt.xcdatamodeld in Sources */,
 				33B3CE8627632072009C501E /* ViewControllerProductos.swift in Sources */,
 				33B3CE8827632D24009C501E /* MCardProducto.swift in Sources */,
 				33EC2112275FF07500D145EC /* VerComprasController.swift in Sources */,
@@ -654,19 +650,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		33F187632758383700368216 /* StockIt.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				33F187642758383700368216 /* StockIt.xcdatamodel */,
-			);
-			currentVersion = 33F187642758383700368216 /* StockIt.xcdatamodel */;
-			path = StockIt.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 33F187512758383700368216 /* Project object */;
 }
