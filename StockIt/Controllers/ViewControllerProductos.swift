@@ -25,16 +25,24 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        tvProductos.delegate = self
-        tvProductos.dataSource = self
+        //tvProductos.delegate = self
+        //tvProductos.dataSource = self
         
         //Cargamos los productos
-        seleccionarProductosActivos(idUsuario: 1)
+        //seleccionarProductosActivos(idUsuario: 1)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //listaProductos.removeAll()
+        
+        seleccionarProductosActivos(idUsuario: 1)
     }
     
     // MARK: - Delegate & DataSource for TableView
@@ -62,7 +70,7 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        print("ID Producto VC1:", listaProductos[indexPath.row].idProducto)
+        
         idProducto = listaProductos[indexPath.row].idProducto
         nomProveedor = listaProductos[indexPath.row].nombreProveedor
         nomCategoria = listaProductos[indexPath.row].categoria
@@ -99,7 +107,7 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
     //MARK - Metodo para consultar los productos activos
     func seleccionarProductosActivos(idUsuario:Int){
         
-        print("Enviar solicitud")
+        print("Enviar Solicitud Productos Activos")
         
         //192.168.1.8
         let url=URL(string: "http://192.168.1.8/WebService/WebServiceSI.asmx/seleccionarProductosByIdUsuarioAndEstadoProductoJSON")!
@@ -122,12 +130,16 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
             
             do { //creamos nuestro objeto json
                 
-                print("recibimos repuesta")
+                print("Recibimos Repuesta Productos Activos")
                 
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
                 {
                     
                     DispatchQueue.main.async {
+                        
+                        if self.listaProductos.count > 0 {
+                            self.listaProductos.removeAll()
+                        }
                         
                         for productoJSON in json {
                             let producto:MCardProducto = MCardProducto()
@@ -142,6 +154,8 @@ class ViewControllerProductos: UIViewController, UITableViewDelegate, UITableVie
                             self.listaProductos.append(producto)
                         }
                         
+                        self.tvProductos.delegate = self
+                        self.tvProductos.dataSource = self
                         self.tvProductos.reloadData()
                         
                         return
