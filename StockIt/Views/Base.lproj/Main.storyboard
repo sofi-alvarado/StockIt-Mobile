@@ -335,12 +335,12 @@
                     <navigationItem key="navigationItem" id="Rck-e9-5Fd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PDU-BD-Wrl">
                             <connections>
-                                <segue destination="w87-TN-Ods" kind="show" id="4aj-qH-KHY"/>
+                                <segue destination="w87-TN-Ods" kind="show" identifier="productosSegue2" id="4aj-qH-KHY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tblViewCompras" destination="BmA-WX-QML" id="bSM-pM-Jtl"/>
+                        <outlet property="tvCompras" destination="BmA-WX-QML" id="eai-B0-7Y6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Rh-DZ-iKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -809,6 +809,6 @@
         <image name="Header" width="1280" height="386"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fzH-OR-q6o"/>
+        <segue reference="4aj-qH-KHY"/>
     </inferredMetricsTieBreakers>
 </document>

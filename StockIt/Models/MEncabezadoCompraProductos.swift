@@ -12,7 +12,8 @@ class MEncabezadoCompraProductos{
     
     var idEncCompraProductos:Int = 0
     var idProveedor:Int = 0
-    var fechaIngreso:Date = Date()
+    var nombreProveedor:String = ""
+    var fechaIngreso:String = ""
     var monto:Double = 0.0
     
 }
